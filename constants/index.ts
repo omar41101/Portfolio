@@ -84,14 +84,18 @@ export const Skill_data = [
     {
       name: "Discord",
       src: "/instagram.svg",
+      link:"https://www.instagram.com/omar_ajimi/",
     },
     {
       name: "Facebook",
-      src: "/facebook.svg",
+      src: "/linkedin.svg",
+      link:"https://www.linkedin.com/in/omar-ajimi-7a5341118/",
     },
     {
       name: "Instagram",
       src: "/discord.svg",
+      link:"",
+
     },
   ];
   

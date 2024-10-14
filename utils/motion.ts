@@ -1,6 +1,6 @@
 export function slideInFromLeft(delay: number) {
     return {
-      hidden: { x: -100, opacity: 0 },
+      hidden: { x: -100, opacity: 100 },
       visible: {
         x: 0,
         opacity: 1,

@@ -24,8 +24,7 @@ const AboutMe = () => {
       />
       <h2 className="text-4xl font-bold text-white mt-5">Omar Ajimi</h2>
       <p className="text-lg text-gray-400 text-center mt-2">
-        I'm a Full Stack Software Engineer specializing in modern web and mobile applications. 
-        I have a passion for coding and am always eager to learn new technologies. 
+        I'm actualy a computer science student and junior Backend developer .I have a passion for coding and am always eager to learn new technologies. 
         Check out my work below!
       </p>
     </motion.div>

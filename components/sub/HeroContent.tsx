@@ -20,16 +20,14 @@ const HeroContent = () => {
         animate="visible"
         className="flex flex-row p-10  justify-center px-20 mt-10 w-full z-[20]"
       >
-         <AboutMe />
+        <AboutMe />
         <div className="h-full w-full flex flex-col gap-5 justify-center m-auto text-start">
           <motion.div
             variants={slideInFromTop}
             className="Welcome-box py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9]"
           >
             <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
-            <h1 className="Welcome-text text-[13px]">
-              Back-End Developer Portfolio
-            </h1>
+            <h1 className="Welcome-text text-[13px]">About Me ! </h1>
           </motion.div>
 
           <motion.div
@@ -50,8 +48,16 @@ const HeroContent = () => {
             variants={slideInFromLeft(0.8)}
             className="text-lg text-gray-400 my-5 max-w-[600px]"
           >
-            I&apos;m a Full Stack Software Engineer with experience in Website,
-            Mobile, and Software development. Check out my projects and skills.
+            Meet Omar Ajimi, a 22-year-old dreamer from Tunisia who thrives on
+            adventure—especially when it’s in the form of epic gaming quests
+            that pull him right into the action! A skilled ethical hacker, he’s
+            now turning his talents toward web development, ready to craft
+            digital worlds as immersive as the games he loves. With his hacker’s
+            mindset and a gamer’s heart, Omar is on a mission to conquer the
+            web, one code at a time. As if that’s not enough, he’s also diving
+            headfirst into the future, mastering blockchain, smart contracts,
+            and Web3 dApps, determined to be part of the next big digital
+            revolution!
           </motion.p>
           <motion.a
             variants={slideInFromLeft(1)}
@@ -60,7 +66,6 @@ const HeroContent = () => {
             Learn More!
           </motion.a>
         </div>
-
         <motion.div
           variants={slideInFromRight(0.8)}
           className="w-full h-full flex justify-center items-center"

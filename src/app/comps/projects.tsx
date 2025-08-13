@@ -100,8 +100,7 @@ const Projects = () => {
             )}
             glitchColor="#0AF0F0"
             glitchRadius={120}
-            style={{ animationDelay: `${index * 200}ms` }}
-          >
+           >
             <div className="p-6 relative flex flex-col flex-grow">
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent rounded-2xl" />
               <div className="relative w-full h-48 mb-6">

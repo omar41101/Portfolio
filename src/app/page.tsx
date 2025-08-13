@@ -37,7 +37,7 @@ const Skills = () => (
       </span>
     </h2>
     <div className="min-h-[400px] sm:min-h-[500px] flex items-center justify-center">
-      <OrbitingSkills skills={coderData.skills} />
+      <OrbitingSkills   />
     </div>
   </section>
 );

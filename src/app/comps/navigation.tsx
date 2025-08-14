@@ -19,19 +19,30 @@ const Navigation = () => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      const nav = document.getElementById("mobile-nav")
+      const overlay = document.getElementById("mobile-overlay")
       const button = document.getElementById("mobile-menu-button")
-      if (isOpen && nav && button && !nav.contains(event.target as Node) && !button.contains(event.target as Node)) {
+      if (
+        isOpen &&
+        overlay &&
+        button &&
+        !overlay.contains(event.target as Node) &&
+        !button.contains(event.target as Node)
+      ) {
         setIsOpen(false)
       }
     }
 
     if (isOpen) {
       document.addEventListener("mousedown", handleClickOutside)
+      // Prevent body scroll when menu is open
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = "unset"
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside)
+      document.body.style.overflow = "unset"
     }
   }, [isOpen])
 
@@ -65,7 +76,7 @@ const Navigation = () => {
   }
 
   const navItems = [
-    { id: "home", label: "Home" },
+    { id: "home", label: "About" },
     { id: "projects", label: "Projects" },
     { id: "skills", label: "Skills" },
     { id: "contact", label: "Contact" },
@@ -99,7 +110,7 @@ const Navigation = () => {
               id="mobile-menu-button"
               variant="ghost"
               size="sm"
-              className="md:hidden p-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+              className="md:hidden p-2 hover:bg-gray-100 dark:hover:bg-gray-800 relative z-60"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle mobile menu"
               aria-expanded={isOpen}
@@ -107,30 +118,49 @@ const Navigation = () => {
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </Button>
           </div>
+        </div>
+      </nav>
 
+      {isOpen && (
+        <div className="fixed inset-0 z-40 md:hidden">
+          {/* Backdrop */}
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm" />
+
+          {/* Menu Content */}
           <div
-            id="mobile-nav"
-            className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-              isOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
-            }`}
+            id="mobile-overlay"
+            className="fixed top-16 left-0 right-0 bottom-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg animate-in slide-in-from-top-2 duration-300"
           >
-            <div className="py-4 border-t border-gray-200 dark:border-gray-800">
-              <div className="flex flex-col space-y-1">
-                {navItems.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className="text-left px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800/50 rounded-lg mx-2 transition-all duration-200 font-medium text-base"
-                  >
-                    {item.label}
-                  </button>
-                ))}
+            <div className="flex flex-col h-full">
+              {/* Navigation Items */}
+              <div className="flex-1 px-6 py-8">
+                <div className="space-y-2">
+                  {navItems.map((item, index) => (
+                    <button
+                      key={item.id}
+                      onClick={() => scrollToSection(item.id)}
+                      className="w-full text-left px-6 py-4 text-lg font-medium text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-xl transition-all duration-200 border border-transparent hover:border-blue-200 dark:hover:border-blue-800"
+                      style={{
+                        animationDelay: `${index * 50}ms`,
+                        animation: "fadeInUp 0.3s ease-out forwards",
+                      }}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Footer */}
+              <div className="px-6 py-6 border-t border-gray-200 dark:border-gray-700">
+                <p className="text-sm text-gray-500 dark:text-gray-400 text-center">Tap anywhere outside to close</p>
               </div>
             </div>
           </div>
         </div>
-      </nav>
+      )}
 
+      {/* Scroll to Top Button */}
       {showScrollTop && (
         <Button
           onClick={scrollToTop}
@@ -141,6 +171,19 @@ const Navigation = () => {
           <ChevronUp size={20} />
         </Button>
       )}
+
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </>
   )
 }

@@ -3,7 +3,7 @@ import OrbitingSkills from './comps/orbiting';
 import Divider from '@/components/ui/divider';
 import Projects from './comps/projects';
 import { Navigation } from 'lucide-react';
-import {GridBackground} from './comps/movinv-grid'
+import { GridBackground } from "./comps/movinv-grid"
 
 const coderData = {
   skills: [

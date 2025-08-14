@@ -3,6 +3,7 @@ import OrbitingSkills from './comps/orbiting';
 import Divider from '@/components/ui/divider';
 import Projects from './comps/projects';
 import { Navigation } from 'lucide-react';
+import {GridBackground} from './comps/movinv-grid'
 
 const coderData = {
   skills: [
@@ -82,6 +83,7 @@ const Contact = () => (
 export default function Home() {
   return (
     <div className="relative w-full min-h-screen">
+      <GridBackground/>
       <Navigation />
       <div
         className="absolute inset-0 z-0 dark:hidden"

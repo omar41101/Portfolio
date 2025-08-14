@@ -63,11 +63,11 @@ const Contact = () => (
         href="mailto:omar.ajimi@example.com"
         className="text-cyan-600 dark:text-cyan-300 hover:text-cyan-700 dark:hover:text-cyan-200"
       >
-        omar.ajimi@example.com
+        ajimiomar.oa@gmail.com
       </a>{' '}
       or connect on{' '}
       <a
-        href="https://linkedin.com/in/omarajimi"
+        href="https://www.linkedin.com/in/omar-ajimi-7a5341118/"
         target="_blank"
         rel="noopener noreferrer"
         className="text-cyan-600 dark:text-cyan-300 hover:text-cyan-700 dark:hover:text-cyan-200"
